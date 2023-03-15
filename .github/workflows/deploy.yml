@@ -26,6 +26,9 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AzureSPN }}
+          
+      - name: Azure Check Login Status
+        run: azd login --check-status
 
       - name: Azure Dev Provision
         run: azd provision --no-prompt
