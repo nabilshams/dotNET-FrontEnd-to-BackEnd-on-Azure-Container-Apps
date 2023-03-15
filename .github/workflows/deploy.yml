@@ -28,7 +28,7 @@ jobs:
           creds: ${{ secrets.AzureSPN }}
           
       - name: Azure Check Login Status
-        run: azd login --check-status
+        run: azd login --client-id ${{ secrets.CLIENT_ID }} --tenant-id ${{ secrets.TENANT_ID }} --client-secret ${{ secrets.CLIENT_SECRET }}
 
       - name: Azure Dev Provision
         run: azd provision --no-prompt
